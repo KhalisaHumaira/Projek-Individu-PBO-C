@@ -11,4 +11,14 @@ public abstract class Person {
         this.nama = nama;
         this.umur = umur;
     }
-  
+    
+  public int getId() { return id; }
+    public String getNama() { return nama; }
+    public int getUmur() { return umur; }
+
+    @Override
+    public String toString() {
+        return nama + " (ID:" + id + ", umur:" + umur + ")";
+    }
+}
+
