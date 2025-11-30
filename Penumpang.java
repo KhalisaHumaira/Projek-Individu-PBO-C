@@ -20,11 +20,11 @@ public class Penumpang {
     public boolean getHamil() { return hamil; }
     public int getSaldo() { return saldo; }
 
-    public void tambahSaldo(int nominal) {
-        saldo += nominal;
+    public void tambahSaldo(int saldobaru) {
+        saldo += saldobaru;
     }
 
-    public void bayarOngkos(int ongkos) {
+    public void kurangiSaldo(int ongkos) {
         saldo -= ongkos;
     }
 
