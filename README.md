@@ -4,6 +4,7 @@ UAS Pemrograman Berorientasi Objek
 Khalisa Humaira (2408107010099)
 
 **Program Manajemen Penumpang Bus**
+
 Program ini dibuat menggunakan Java untuk mensimulasikan sistem penumpang pada bus Trans Koetaradja.
 
 **Penumpang akan ditempatkan berdasarkan aturan:**
