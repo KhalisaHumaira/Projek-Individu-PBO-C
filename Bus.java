@@ -95,3 +95,64 @@ public class Bus {
         System.out.println("❌ Area berdiri juga penuh!");
         return false;
     }
+ public boolean turunkanPenumpang(String nama) {
+
+        for (int i = 0; i < penumpangPrioritas.length; i++)
+            if (penumpangPrioritas[i] != null && penumpangPrioritas[i].getNama().equalsIgnoreCase(nama)) {
+                penumpangPrioritas[i] = null;
+                return true;
+            }
+
+        for (int i = 0; i < penumpangBiasa.length; i++)
+            if (penumpangBiasa[i] != null && penumpangBiasa[i].getNama().equalsIgnoreCase(nama)) {
+                penumpangBiasa[i] = null;
+                return true;
+            }
+
+        for (int i = 0; i < penumpangBerdiri.length; i++)
+            if (penumpangBerdiri[i] != null && penumpangBerdiri[i].getNama().equalsIgnoreCase(nama)) {
+                penumpangBerdiri[i] = null;
+                return true;
+            }
+
+        return false;
+    }
+
+    public boolean topUpSaldo(String nama, int jumlah) {
+
+        for (Penumpang p : penumpangPrioritas)
+            if (p != null && p.getNama().equalsIgnoreCase(nama)) { p.tambahSaldo(jumlah); return true; }
+
+        for (Penumpang p : penumpangBiasa)
+            if (p != null && p.getNama().equalsIgnoreCase(nama)) { p.tambahSaldo(jumlah); return true; }
+
+        for (Penumpang p : penumpangBerdiri)
+            if (p != null && p.getNama().equalsIgnoreCase(nama)) { p.tambahSaldo(jumlah); return true; }
+
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "\n===== DATA BUS =====\n" +
+                "Prioritas : " + format(penumpangPrioritas) +
+                "\nBiasa     : " + format(penumpangBiasa) +
+                "\nBerdiri   : " + format(penumpangBerdiri) +
+                "\nTotal Penumpang : " + totalPenumpang() +
+                "\nPendapatan Bus  : Rp " + pendapatan +
+                "\n====================\n";
+    }
+
+    private String format(Penumpang[] arr) {
+        StringBuilder out = new StringBuilder();
+        boolean kosong = true;
+
+        for (Penumpang p : arr) {
+            if (p != null) {
+                out.append(p.getNama()).append(" (Rp ").append(p.getSaldo()).append(") | ");
+                kosong = false;
+            }
+        }
+        return kosong ? "<kosong>" : out.toString();
+    }
+}
