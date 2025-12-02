@@ -56,3 +56,42 @@ public class Bus {
             System.out.println("❌ Bus penuh! Tidak bisa naik.");
             return false;
         }
+
+        // --- PRIORITAS ---
+        if (p.isPrioritas()) {
+            for (int i = 0; i < penumpangPrioritas.length; i++) {
+                if (penumpangPrioritas[i] == null) {
+                    penumpangPrioritas[i] = p;
+                    p.kurangiSaldo(ONGKOS);
+                    pendapatan += ONGKOS;
+                    return true;
+                }
+            }
+            System.out.println("Kursi prioritas penuh → dipindahkan ke kursi biasa.");
+        }
+
+        // --- KURSI BIASA ---
+        for (int i = 0; i < penumpangBiasa.length; i++) {
+            if (penumpangBiasa[i] == null) {
+                penumpangBiasa[i] = p;
+                p.kurangiSaldo(ONGKOS);
+                pendapatan += ONGKOS;
+                return true;
+            }
+        }
+
+        // --- BERDIRI ---
+        System.out.println("Kursi biasa penuh → penumpang berdiri.");
+
+        for (int i = 0; i < penumpangBerdiri.length; i++) {
+            if (penumpangBerdiri[i] == null) {
+                penumpangBerdiri[i] = p;
+                p.kurangiSaldo(ONGKOS);
+                pendapatan += ONGKOS;
+                return true;
+            }
+        }
+
+        System.out.println("❌ Area berdiri juga penuh!");
+        return false;
+    }
