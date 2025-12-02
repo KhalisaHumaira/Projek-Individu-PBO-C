@@ -27,3 +27,32 @@ public class Bus {
 
         return false;
     }
+
+  public int totalPenumpang() {
+        return getJumlah(penumpangPrioritas) +
+               getJumlah(penumpangBiasa) +
+               getJumlah(penumpangBerdiri);
+    }
+
+    public int getJumlah(Penumpang[] arr) {
+        int count = 0;
+        for (Penumpang p : arr) if (p != null) count++;
+        return count;
+    }
+
+    public boolean naikPenumpang(Penumpang p) {
+
+        if (isDuplicate(p)) {
+            System.out.println("Penumpang dengan nama atau ID sudah ada!");
+            return false;
+        }
+
+        if (p.getSaldo() < ONGKOS) {
+            System.out.println("Saldo tidak cukup.");
+            return false;
+        }
+
+        if (totalPenumpang() >= 40) {
+            System.out.println("❌ Bus penuh! Tidak bisa naik.");
+            return false;
+        }
