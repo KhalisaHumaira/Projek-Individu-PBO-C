@@ -1,7 +1,7 @@
 # Projek-Individu-PBO-C
 **UAS Pemrograman Berorientasi Objek**
 
-Khalisa Humaira (2408107010099)
+**Khalisa Humaira (2408107010099)**
 
 **Program Manajemen Penumpang Bus**
 
