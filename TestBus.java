@@ -41,10 +41,10 @@ public class TestBus {
 
                 Penumpang p = new Penumpang(id, nama, umur, statusHamil);
 
-                if (bus.naikPenumpang(p))
-                    System.out.println("Penumpang berhasil naik!");
+                           if (bus.naikPenumpang(p))
+                    System.out.println("✅ Penumpang berhasil naik!");
                 else
-                    System.out.println("❌ Gagal naik!");
+                    System.out.println("❌ Penumpang gagal naik!");
 
             } else if (pilih == 2) {
 
@@ -53,9 +53,9 @@ public class TestBus {
                 String nama = input.nextLine();
 
                 if (bus.turunkanPenumpang(nama))
-                    System.out.println("Penumpang turun.");
+                    System.out.println("✅ Penumpang berhasil turun. Terimakasih telah menggunakan bus ini!");
                 else
-                    System.out.println("❌ Nama tidak ditemukan.");
+                    System.out.println("❌ Nama tidak ditemukan. Pastikan penumpang sudah terdaftar.");
 
             } else if (pilih == 3) {
 
@@ -67,16 +67,16 @@ public class TestBus {
                 System.out.print("Nama penumpang: ");
                 String nama = input.nextLine();
 
-                System.out.print("Nominal topup: ");
+                System.out.print("Nominal top up : ");
                 int nominal = getInt(input);
 
                 if (bus.topUpSaldo(nama, nominal))
-                    System.out.println("Topup berhasil.");
+                    System.out.println("✅ Top-up berhasil. Saldo telah diperbarui.");
                 else
-                    System.out.println("❌ Nama tidak ditemukan.");
+                    System.out.println("❌ Top-up gagal. Nama penumpang tidak ditemukan.");
 
             } else if (pilih == 5) {
-                System.out.println("Terima kasih!");
+                System.out.println("Terima kasih sampai jumpa kembali 😊 !");
                 break;
             }
         }
@@ -91,4 +91,3 @@ public class TestBus {
         return sc.nextInt();
     }
 }
-
